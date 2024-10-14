@@ -1,0 +1,20 @@
+.containerss{
+  display: flex;
+ 
+}
+.content{
+  width: 100%;
+ 
+}
+.sidebar{
+  min-height: 800px;
+ 
+}
+.postlists{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 30px;
+ 
+}
