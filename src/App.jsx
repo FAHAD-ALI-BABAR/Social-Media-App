@@ -10,7 +10,7 @@ import Postlistsprovider from './Store/Postlistsprovider'
 
 function App() {
   const [count, setCount] = useState(0)
-  const [selectedtab,setselectedtab]=useState("Create-post")
+  const [selectedtab,setselectedtab]=useState("Home")
 
   return (
     <>

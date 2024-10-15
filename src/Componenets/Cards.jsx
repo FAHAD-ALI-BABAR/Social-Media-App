@@ -1,12 +1,20 @@
 import React from 'react'
+import { MdDelete } from "react-icons/md";
 
-const Cards = () => {
+const Cards = ({postlistitems}) => {
   return (
-    <><div className="card" style={{width: "18rem"}}>
-    <div className="card-body">
-      <h5 className="card-title">Card title</h5>
-      <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <a href="#" className="btn btn-primary">Go somewhere</a>
+    <>
+    
+    <div  className="card" style={{width: "18rem"}}>
+    <div key={postlistitems.id} className="card-body">
+      <h5 className="card-title">{postlistitems.title}
+      <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+      <MdDelete />
+    
+  </span>
+      </h5>
+      <p className="card-text">{postlistitems.description}</p>
+      {postlistitems.hashtags.map((hashtag)=><span key={hashtag} className="badge rounded-pill text-bg-primary ms-1">{hashtag}</span>)}
     </div>
   </div></>
   )
