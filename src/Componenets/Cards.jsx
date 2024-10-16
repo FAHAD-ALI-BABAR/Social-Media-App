@@ -1,9 +1,11 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { MdDelete } from "react-icons/md";
 import {Postlist} from "../Store/Postlistsprovider"
 
 const Cards = ({postlistitems}) => {
    const{delpost}= useContext(Postlist)
+  
+  
   return (
     <>
     
@@ -21,7 +23,11 @@ const Cards = ({postlistitems}) => {
     <div className="alert alert-success" role="alert">
   This post has been reacted by {postlistitems.reactions} people!
 </div>
-  </div></>
+<div className='username'>Created by :<span class="badge text-bg-warning username">{postlistitems.username}</span></div>
+
+  </div>
+ 
+  </>
   )
 }
 

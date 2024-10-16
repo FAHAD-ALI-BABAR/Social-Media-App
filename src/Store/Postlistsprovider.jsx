@@ -5,6 +5,9 @@ export const postlistreducer=(currpostlist,action)=>{
     if(action.type==="Delete_post"){
         newpsotlist=currpostlist.filter((item)=> item.id!==action.payload.postid)
     }
+    else if(action.type==="Create_post"){
+        newpsotlist=[action.payload,...currpostlist]
+    }
     return newpsotlist;
 }
  export const Postlist=createContext({
@@ -14,7 +17,24 @@ export const postlistreducer=(currpostlist,action)=>{
 });
 const Postlistsprovider = ({children}) => {
     const [postlist,dispatchpostlist]=useReducer(postlistreducer,Default_post_list)
-    const addpost=()=>{}
+
+    const addpost=(Posttile,Postdescription,Postreaction,Postusername,Posthashtags)=>{
+        console.log(` ${Posttile},${Postdescription},${Postreaction},${Postusername},${Posthashtags}`);
+        dispatchpostlist({
+            type:"Create_post",
+            payload:{
+                id:Math.random(),
+                title:Posttile,
+                description:Postdescription,
+                reactions:Postreaction,
+                username:Postusername,
+                hashtags:Posthashtags,
+            }
+        })
+        
+    }
+
+
     const delpost=(postid)=>{
 console.log(`post deleted of postid :${postid}`);
 dispatchpostlist({
